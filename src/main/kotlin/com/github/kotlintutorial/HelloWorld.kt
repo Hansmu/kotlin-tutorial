@@ -56,6 +56,18 @@ fun main(args: Array<String>) {
 
     val change = 4.22
     println("\$ $change but add a dollar and you get ${change + 1}, right ${employeeOne.name}?")
+
+    // Triple quoted strings allows you to not use escape characters
+    // Also can use them for multi line Strings
+    val filePath = """c:\dir\dir2\file.txt"""
+    val nurseryRhyme = """
+
+        Humpty Dumpty did a trumpty
+        Little flumpy
+        Pump the chumpty. $change
+    """.trimIndent()
+
+    println(nurseryRhyme)
 }
 
 class Employee(var name: String, val id: Int) {
