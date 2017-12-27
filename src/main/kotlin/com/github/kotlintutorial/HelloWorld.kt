@@ -53,6 +53,9 @@ fun main(args: Array<String>) {
         // If you assign something else to the employee, some other type, then you can't use it as an Employee anymore.
         println(something.name)
     }
+
+    val change = 4.22
+    println("\$ $change but add a dollar and you get ${change + 1}, right ${employeeOne.name}?")
 }
 
 class Employee(var name: String, val id: Int) {
@@ -62,5 +65,9 @@ class Employee(var name: String, val id: Int) {
         }
 
         return false
+    }
+
+    override fun toString(): String {
+        return "Employee(name='$name', id=$id)"
     }
 }
