@@ -37,6 +37,22 @@ fun main(args: Array<String>) {
     println(employeeTwo == employeeThree)
     println(employeeOne.equals(employeeTwo))
     println(employeeTwo.equals(employeeThree))
+
+    val x = 0x001001
+    val y = 0x111011
+
+    // You spell out the bitwise operators instead of using symbols
+    x or y
+    x and y
+    x xor y
+
+    val something: Any = employeeTwo // Any is kind of like object in Java, but not exactly
+    if (something is Employee) { // !is
+        something as Employee // Casting in Kotlin "something as employee"
+        // Don't really have to cast if there is an if that checks the class type. Kotlin casts it automatically
+        // If you assign something else to the employee, some other type, then you can't use it as an Employee anymore.
+        println(something.name)
+    }
 }
 
 class Employee(var name: String, val id: Int) {
