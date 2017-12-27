@@ -27,8 +27,24 @@ fun main(args: Array<String>) {
     employeeOne.name = "Lynn Smith"
 
     val employees: EmployeeSet
+
+    val employeeTwo = Employee("John", 2)
+    val employeeThree = Employee("John", 2)
+
+    // == does structural comparison in Kotlin
+    println("\nEquality check")
+    println(employeeOne == employeeTwo)
+    println(employeeTwo == employeeThree)
+    println(employeeOne.equals(employeeTwo))
+    println(employeeTwo.equals(employeeThree))
 }
 
 class Employee(var name: String, val id: Int) {
+    override fun equals(obj: Any?): Boolean {
+        if (obj is Employee) {
+            return name == obj.name && id == obj.id
+        }
 
+        return false
+    }
 }
