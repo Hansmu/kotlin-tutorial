@@ -19,3 +19,5 @@ There is no "new" keyword in Kotlin.
 In Java == checks for referential equality. .equals() looks for structural equality.
 
 In Kotlin == checks for structural equality. === checks for referential equality. Equals method still has to be implemented.
+
+Tools -> Kotlin -> Kotlin REPL to run some Kotlin snippets
