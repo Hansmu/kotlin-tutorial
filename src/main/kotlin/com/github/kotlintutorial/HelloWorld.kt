@@ -1,5 +1,9 @@
 package com.github.kotlintutorial
 
+// Type alias - give a type a different name. Maybe to type less or to have a more meaningful type name.
+// Have to be declared at the top level. Outside of any functions or classes.
+typealias EmployeeSet = Set<Employee>
+
 // No imports for array and such because Kotlin imports a whole bunch of stuff by default from the Kotlin standard library. It's to cut down on boilerplate.
 
 // Functions outside of classes are top level functions
@@ -21,6 +25,8 @@ fun main(args: Array<String>) {
 
     val employeeOne = Employee("Lynn Jones", 500)
     employeeOne.name = "Lynn Smith"
+
+    val employees: EmployeeSet
 }
 
 class Employee(var name: String, val id: Int) {
