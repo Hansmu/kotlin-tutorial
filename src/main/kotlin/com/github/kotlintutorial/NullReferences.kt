@@ -24,4 +24,16 @@ fun main(args: Array<String>) {
     val str3 = something as? String // If you can't perform the cast successfully, then it evaluates to null
     // If you use the safe cast operator, then you have to use the safe call operator from henceforth
     println(str3)
+
+    // When you're sure an expression can't equal to null
+    val someString: String? = "This isn't null"
+    someString!!.toUpperCase() // Not null assertion. You might want to see a null pointer exception, then you can use this
+    // Null pointer gets thrown when we make the assertion not when we call the method. So someString!! throws the exception not someString!!.toUpperCase()
+    // Chaining with !! is not a good idea because the line number won't give you proper info on what was actually null. (account!!.balance!!.funds)
+
+    someString?.let { printText(it) }
+}
+
+fun printText(text: String) {
+    println(text)
 }
