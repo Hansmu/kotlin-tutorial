@@ -32,6 +32,8 @@ fun main(args: Array<String>) {
     // Chaining with !! is not a good idea because the line number won't give you proper info on what was actually null. (account!!.balance!!.funds)
 
     someString?.let { printText(it) }
+
+    val nullableInts = arrayOfNulls<Int>(5)
 }
 
 fun printText(text: String) {
