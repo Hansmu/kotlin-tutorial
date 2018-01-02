@@ -7,6 +7,40 @@ fun main(args: Array<String>) {
     //  Mixing Java and Kotlin can create some encapsulation problems. If there's a really long and ugly name in a Kotlin file, it probably means it was compiled into Java and was limited to private.
     val employee = EmployeeBloke()
     println(employee)
+
+    val kotlinEmployee = KotlinEmployeeLongWay("John")
+    println(kotlinEmployee.firstName)
+
+    val alsoKotlinEmployee = KotlinEmployee("Johnathan")
+    println(alsoKotlinEmployee.firstName)
+
+    val otherEmployee = KotlinEmployee("Bobberts", false)
+    println(otherEmployee.fullTime)
+}
+
+//  Kotlin will automatically assign the same properties from the constructor parameters, so there isn't any point in declaring like below.
+//  Could remove the constructor keyword as well. However can't do that when using annotations or access modifiers. E.g. if you set it to protected
+//  protected constructor(val firstName: String)
+//  Parameter can also be var of course.
+//  Most time you can assign default values, so you won't really need a secondary constructor.
+class KotlinEmployee constructor(val firstName: String, var fullTime: Boolean = true) {
+}
+
+// Primary constructor is defined here. You can define more inside the class, if it's outside of the curlies, then it's a primary constructor.
+class KotlinEmployeeLongWay constructor(firstName: String){
+    val firstName: String
+    var fullTime: Boolean = true
+
+    //  All of the secondary constructors have to delegate to the primary constructor, use this() to do it.
+    //  Using val or var in the secondary constructor does not lead to the variables being declared for us. Only the primary constructor does.
+    constructor(firstName: String, fullTime: Boolean): this(firstName) {
+        this.fullTime = fullTime
+    }
+
+    //  This is not a constructor. This runs when a new instance is created. It runs in conjunction with a primary constructor.
+    init {
+        this.firstName = firstName
+    }
 }
 
 private class EmployeeBloke {
