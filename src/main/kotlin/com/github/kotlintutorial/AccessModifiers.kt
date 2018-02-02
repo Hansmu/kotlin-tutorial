@@ -23,7 +23,20 @@ fun main(args: Array<String>) {
 //  protected constructor(val firstName: String)
 //  Parameter can also be var of course.
 //  Most time you can assign default values, so you won't really need a secondary constructor.
-class KotlinEmployee constructor(val firstName: String, var fullTime: Boolean = true) {
+//  When you have a variable you aren't actually accessing it directly, Kotlin generates getters and setters for the values.
+//  Private variables are only limited to being changed within the class.
+//  In order to create your own custom getter and setter you have to remove the variable declaration from the constructor.
+class KotlinEmployee constructor(val firstName: String, fullTime: Boolean = true) {
+    var fullTime = fullTime
+    //  Custom set and get have to come immediately after the variable declaration
+    get() {
+        println("Running the custom get")
+        return field    //  References the field that is before the get
+    }
+    set(value) {
+        println("Runnin the custom set")
+        field = value
+    }
 }
 
 // Primary constructor is defined here. You can define more inside the class, if it's outside of the curlies, then it's a primary constructor.
